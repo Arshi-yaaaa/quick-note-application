@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickNote — Your thoughts, organized</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">✎</div>
+        <div>
+          <h1>QuickNote</h1>
+          <p>Your thoughts, organized.</p>
+        </div>
+      </div>
+      <div class="topbar-right"><span class="status-dot"></span> Cloud-ready notes</div>
+    </header>
+
+    <main class="main-layout">
+      <section class="editor-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CAPTURE A THOUGHT</p>
+            <h2>New note</h2>
+          </div>
+          <span class="paper-icon">▤</span>
+        </div>
+        <form id="note-form">
+          <input id="note-title" type="text" maxlength="80" placeholder="Give your note a title (optional)">
+          <textarea id="note-content" placeholder="What's on your mind? Start typing here..." required></textarea>
+          <div class="editor-footer">
+            <span id="char-count">0 characters</span>
+            <button id="save-button" type="submit"><span>＋</span> Save note</button>
+          </div>
+        </form>
+        <div class="tip"><span>✦</span> Your notes are saved locally in a database.</div>
+      </section>
+
+      <section class="notes-panel">
+        <div class="notes-heading">
+          <div>
+            <p class="eyebrow">YOUR COLLECTION</p>
+            <h2>Saved notes <span id="note-count" class="count-badge">0</span></h2>
+          </div>
+          <button id="refresh-button" class="icon-button" title="Refresh notes">↻</button>
+        </div>
+        <div id="notes-list" class="notes-list"></div>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✎</div>
+          <h3>No notes yet</h3>
+          <p>Your ideas deserve a place. Create your first note!</p>
+        </div>
+      </section>
+    </main>
+    <footer>Made with care · QuickNote</footer>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
